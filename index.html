@@ -18,7 +18,7 @@
     
     
       
-        <title>MkDocs Coverage Plugin</title>
+        <title>Overview - MkDocs Coverage Plugin</title>
       
     
     
@@ -158,6 +158,65 @@
       
       
         
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="reference/loggers/" class="md-tabs__link">
+        Code Reference
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="contributing/" class="md-tabs__link">
+        Development
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
@@ -171,8 +230,10 @@
 
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://pawamoy.github.io/mkdocs-coverage" title="MkDocs Coverage Plugin" class="md-nav__button md-logo" aria-label="MkDocs Coverage Plugin">
       
@@ -202,6 +263,30 @@
       
       
 
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      
+      <label class="md-nav__link" for="nav-1">
+        Home
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
   
   
     
@@ -250,10 +335,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="credits/" class="md-nav__link">
+        Credits
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -288,8 +410,20 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/cli/" class="md-nav__link">
-        cli.py
+      <a href="reference/loggers/" class="md-nav__link">
+        loggers.py
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/plugin/" class="md-nav__link">
+        plugin.py
       </a>
     </li>
   
@@ -308,6 +442,28 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        Development
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Development" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
     <li class="md-nav__item">
       <a href="contributing/" class="md-nav__link">
         Contributing
@@ -315,11 +471,8 @@
     </li>
   
 
-    
-      
-      
-      
-
+          
+            
   
   
   
@@ -330,33 +483,21 @@
     </li>
   
 
-    
-      
-      
-      
-
+          
+            
   
   
   
     <li class="md-nav__item">
-      <a href="changelog/" class="md-nav__link">
-        Changelog
+      <a href="coverage/" class="md-nav__link">
+        Coverage report
       </a>
     </li>
   
 
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="credits/" class="md-nav__link">
-        Credits
-      </a>
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -395,6 +536,13 @@
         <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
     Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
   </a>
   
 </li>
@@ -452,6 +600,22 @@ pyenv global system <span class="m">3</span>.6.12
 
 pipx install --python python3.6 mkdocs-coverage
 </code></pre></div></p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">¤</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># mkdocs.yml</span>
+
+<span class="nt">nav</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">Coverage report</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">coverage.md</span>
+
+<span class="nt">plugins</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">coverage</span><span class="p">:</span>
+    <span class="nt">page_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">coverage</span>  <span class="c1"># default</span>
+    <span class="nt">html_report_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">htmlcov</span>  <span class="c1"># default</span>
+</code></pre></div>
+<p>Now serve your documentation,
+and go to <a href="http://localhost:8000/coverage/">http://localhost:8000/coverage/</a>
+to see your coverage report!</p>
+<p><img alt="coverage index" src="https://user-images.githubusercontent.com/3999221/106802970-f4376a80-6663-11eb-8665-e9e09f0f4ac0.png" />
+<img alt="coverage module" src="https://user-images.githubusercontent.com/3999221/106803017-fe596900-6663-11eb-9df9-973755c5b63e.png" /></p>
                 
               
               
@@ -471,13 +635,13 @@ pipx install --python python3.6 mkdocs-coverage
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
         
-          <a href="reference/cli/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="changelog/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                cli.py
+                Changelog
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -510,7 +674,7 @@ pipx install --python python3.6 mkdocs-coverage
       <script>
         app = initialize({
           base: ".",
-          features: [],
+          features: ['navigation.tabs'],
           search: Object.assign({
             worker: "assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)

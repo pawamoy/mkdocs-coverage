@@ -11,14 +11,14 @@
       
       
       
-        <link rel="canonical" href="https://pawamoy.github.io/mkdocs-coverage/reference/cli/">
+        <link rel="canonical" href="https://pawamoy.github.io/mkdocs-coverage/reference/loggers/">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.7">
     
     
       
-        <title>cli.py - MkDocs Coverage Plugin</title>
+        <title>loggers.py - MkDocs Coverage Plugin</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mkdocs_coverage.cli" class="md-skip">
+        <a href="#mkdocs_coverage.loggers" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              cli.py
+              loggers.py
             
           </span>
         </div>
@@ -158,6 +158,65 @@
       
       
         
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Code Reference
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        Development
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
@@ -171,8 +230,10 @@
 
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://pawamoy.github.io/mkdocs-coverage" title="MkDocs Coverage Plugin" class="md-nav__button md-logo" aria-label="MkDocs Coverage Plugin">
       
@@ -205,10 +266,62 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" >
+      
+      <label class="md-nav__link" for="nav-1">
+        Home
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
         Overview
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../credits/" class="md-nav__link">
+        Credits
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -252,12 +365,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          cli.py
+          loggers.py
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        cli.py
+        loggers.py
       </a>
       
         
@@ -272,22 +385,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mkdocs_coverage.cli" class="md-nav__link">
-    mkdocs_coverage.cli
+  <a href="#mkdocs_coverage.loggers" class="md-nav__link">
+    mkdocs_coverage.loggers
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mkdocs_coverage.cli.get_parser" class="md-nav__link">
-    get_parser()
+  <a href="#mkdocs_coverage.loggers.LoggerAdapter" class="md-nav__link">
+    LoggerAdapter
   </a>
+  
+    <nav class="md-nav" aria-label="LoggerAdapter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mkdocs_coverage.loggers.LoggerAdapter.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdocs_coverage.loggers.LoggerAdapter.process" class="md-nav__link">
+    process()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mkdocs_coverage.cli.main" class="md-nav__link">
-    main()
+  <a href="#mkdocs_coverage.loggers.get_logger" class="md-nav__link">
+    get_logger()
   </a>
   
 </li>
@@ -296,6 +429,18 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugin/" class="md-nav__link">
+        plugin.py
+      </a>
     </li>
   
 
@@ -313,6 +458,28 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        Development
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Development" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../contributing/" class="md-nav__link">
         Contributing
@@ -320,11 +487,8 @@
     </li>
   
 
-    
-      
-      
-      
-
+          
+            
   
   
   
@@ -335,33 +499,21 @@
     </li>
   
 
-    
-      
-      
-      
-
+          
+            
   
   
   
     <li class="md-nav__item">
-      <a href="../../changelog/" class="md-nav__link">
-        Changelog
+      <a href="../../coverage/" class="md-nav__link">
+        Coverage report
       </a>
     </li>
   
 
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../credits/" class="md-nav__link">
-        Credits
-      </a>
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -389,22 +541,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mkdocs_coverage.cli" class="md-nav__link">
-    mkdocs_coverage.cli
+  <a href="#mkdocs_coverage.loggers" class="md-nav__link">
+    mkdocs_coverage.loggers
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mkdocs_coverage.cli.get_parser" class="md-nav__link">
-    get_parser()
+  <a href="#mkdocs_coverage.loggers.LoggerAdapter" class="md-nav__link">
+    LoggerAdapter
   </a>
+  
+    <nav class="md-nav" aria-label="LoggerAdapter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mkdocs_coverage.loggers.LoggerAdapter.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdocs_coverage.loggers.LoggerAdapter.process" class="md-nav__link">
+    process()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mkdocs_coverage.cli.main" class="md-nav__link">
-    main()
+  <a href="#mkdocs_coverage.loggers.get_logger" class="md-nav__link">
+    get_logger()
   </a>
   
 </li>
@@ -421,71 +593,42 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/pawamoy/mkdocs-coverage/edit/master/docs/reference/cli.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/pawamoy/mkdocs-coverage/edit/master/docs/reference/loggers.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>cli.py</h1>
+                  <h1>loggers.py</h1>
                 
                 <div class="doc doc-object doc-module">
-<h2 class="hidden-toc" id="mkdocs_coverage.cli" style="visibility: hidden; position: absolute;">
-        <a class="headerlink" href="#mkdocs_coverage.cli" title="Permanent link">¤</a></h2>
+<h2 class="hidden-toc" id="mkdocs_coverage.loggers" style="visibility: hidden; position: absolute;">
+        <a class="headerlink" href="#mkdocs_coverage.loggers" title="Permanent link">¤</a></h2>
 <div class="doc doc-contents first">
-<p>Module that contains the command line application.</p>
+<p>Logging functions.</p>
 <div class="doc doc-children">
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="mkdocs_coverage.cli.get_parser">
+<div class="doc doc-object doc-class">
+<h2 class="doc doc-heading" id="mkdocs_coverage.loggers.LoggerAdapter">
 
-<code class="highlight language-python"><span class="n">get_parser</span><span class="p">()</span></code>
+        <code>LoggerAdapter</code>
 
 
-      <a class="headerlink" href="#mkdocs_coverage.cli.get_parser" title="Permanent link">¤</a></h2>
+
+      <a class="headerlink" href="#mkdocs_coverage.loggers.LoggerAdapter" title="Permanent link">¤</a></h2>
 <div class="doc doc-contents ">
-<p>Return the CLI argument parser.</p>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ArgumentParser</code></td>
-<td>
-<p>An argparse parser.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-          <summary>Source code in <code>mkdocs_coverage/cli.py</code></summary>
-          <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">get_parser</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Return the CLI argument parser.</span>
+<p>A logger adapter to prefix messages.</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="mkdocs_coverage.loggers.LoggerAdapter.__init__">
 
-<span class="sd">    Returns:</span>
-<span class="sd">        An argparse parser.</span>
-<span class="sd">    """</span>
-    <span class="k">return</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s2">"mkdocs-coverage"</span><span class="p">)</span>
-</code></pre>
-</div>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="mkdocs_coverage.cli.main">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span></code>
 
-<code class="highlight language-python"><span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
 
-
-      <a class="headerlink" href="#mkdocs_coverage.cli.main" title="Permanent link">¤</a></h2>
+      <a class="headerlink" href="#mkdocs_coverage.loggers.LoggerAdapter.__init__" title="Permanent link">¤</a></h3>
 <div class="doc doc-contents ">
-<p>Run the main program.</p>
-<p>This function is executed when you type <code>mkdocs-coverage</code> or <code>python -m mkdocs_coverage</code>.</p>
+<p>Initialize the object.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -498,12 +641,76 @@
 </thead>
 <tbody>
 <tr>
-<td><code>args</code></td>
-<td><code>Optional[List[str]]</code></td>
+<td><code>prefix</code></td>
+<td><code></code></td>
 <td>
-<p>Arguments passed from the command line.</p>
+<p>The string to insert in front of every message.</p>
 </td>
-<td><code>None</code></td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>logger</code></td>
+<td><code></code></td>
+<td>
+<p>The logger instance.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>mkdocs_coverage/loggers.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">logger</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Initialize the object.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        prefix: The string to insert in front of every message.</span>
+<span class="sd">        logger: The logger instance.</span>
+<span class="sd">    """</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="n">prefix</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="mkdocs_coverage.loggers.LoggerAdapter.process">
+
+<code class="highlight language-python"><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span></code>
+
+
+      <a class="headerlink" href="#mkdocs_coverage.loggers.LoggerAdapter.process" title="Permanent link">¤</a></h3>
+<div class="doc doc-contents ">
+<p>Process the message.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>msg</code></td>
+<td><code>str</code></td>
+<td>
+<p>The message:</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>kwargs</code></td>
+<td><code></code></td>
+<td>
+<p>Remaining arguments.</p>
+</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
@@ -517,32 +724,99 @@
 </thead>
 <tbody>
 <tr>
-<td><code>int</code></td>
+<td><code>Tuple[Any, MutableMapping[str, Any]]</code></td>
 <td>
-<p>An exit code.</p>
+<p>The processed message, and the remaining arguments.</p>
 </td>
 </tr>
 </tbody>
 </table>
 <details class="quote">
-          <summary>Source code in <code>mkdocs_coverage/cli.py</code></summary>
+          <summary>Source code in <code>mkdocs_coverage/loggers.py</code></summary>
           <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">MutableMapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
     <span class="sd">"""</span>
-<span class="sd">    Run the main program.</span>
-
-<span class="sd">    This function is executed when you type `mkdocs-coverage` or `python -m mkdocs_coverage`.</span>
+<span class="sd">    Process the message.</span>
 
 <span class="sd">    Arguments:</span>
-<span class="sd">        args: Arguments passed from the command line.</span>
+<span class="sd">        msg: The message:</span>
+<span class="sd">        kwargs: Remaining arguments.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        An exit code.</span>
+<span class="sd">        The processed message, and the remaining arguments.</span>
 <span class="sd">    """</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span>
-    <span class="n">opts</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>  <span class="c1"># noqa: WPS421 (side-effect in main is fine)</span>
-    <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">kwargs</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="mkdocs_coverage.loggers.get_logger">
+
+<code class="highlight language-python"><span class="n">get_logger</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></code>
+
+
+      <a class="headerlink" href="#mkdocs_coverage.loggers.get_logger" title="Permanent link">¤</a></h2>
+<div class="doc doc-contents ">
+<p>Return a pre-configured logger.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>str</code></td>
+<td>
+<p>The name to use with <code>logging.getLogger</code>.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LoggerAdapter</code></td>
+<td>
+<p>A logger configured to work well in MkDocs.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>mkdocs_coverage/loggers.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">get_logger</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LoggerAdapter</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Return a pre-configured logger.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        name: The name to use with `logging.getLogger`.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A logger configured to work well in MkDocs.</span>
+<span class="sd">    """</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="sa">f</span><span class="s2">"mkdocs.plugins.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="n">warning_filter</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">LoggerAdapter</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
 </code></pre>
 </div>
 </details>
@@ -569,7 +843,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../.." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../credits/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -578,19 +852,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Overview
+                Credits
               </div>
             </div>
           </a>
         
         
-          <a href="../../contributing/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../plugin/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Contributing
+                plugin.py
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -623,7 +897,7 @@
       <script>
         app = initialize({
           base: "../..",
-          features: [],
+          features: ['navigation.tabs'],
           search: Object.assign({
             worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)

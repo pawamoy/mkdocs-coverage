@@ -4,7 +4,19 @@
      <lastmod>2021-02-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://pawamoy.github.io/mkdocs-coverage/reference/cli/</loc>
+     <loc>https://pawamoy.github.io/mkdocs-coverage/changelog/</loc>
+     <lastmod>2021-02-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://pawamoy.github.io/mkdocs-coverage/credits/</loc>
+     <lastmod>2021-02-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://pawamoy.github.io/mkdocs-coverage/reference/loggers/</loc>
+     <lastmod>2021-02-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://pawamoy.github.io/mkdocs-coverage/reference/plugin/</loc>
      <lastmod>2021-02-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -16,11 +28,7 @@
      <lastmod>2021-02-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://pawamoy.github.io/mkdocs-coverage/changelog/</loc>
-     <lastmod>2021-02-03</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://pawamoy.github.io/mkdocs-coverage/credits/</loc>
+     <loc>https://pawamoy.github.io/mkdocs-coverage/coverage/</loc>
      <lastmod>2021-02-03</lastmod>
      <changefreq>daily</changefreq>
     </url>

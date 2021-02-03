@@ -158,6 +158,65 @@
       
       
         
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../reference/loggers/" class="md-tabs__link">
+        Code Reference
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Development
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
@@ -171,8 +230,10 @@
 
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://pawamoy.github.io/mkdocs-coverage" title="MkDocs Coverage Plugin" class="md-nav__button md-logo" aria-label="MkDocs Coverage Plugin">
       
@@ -205,10 +266,62 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" >
+      
+      <label class="md-nav__link" for="nav-1">
+        Home
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
     <li class="md-nav__item">
       <a href=".." class="md-nav__link">
         Overview
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../credits/" class="md-nav__link">
+        Credits
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -243,8 +356,20 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/cli/" class="md-nav__link">
-        cli.py
+      <a href="../reference/loggers/" class="md-nav__link">
+        loggers.py
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/plugin/" class="md-nav__link">
+        plugin.py
       </a>
     </li>
   
@@ -260,6 +385,30 @@
       
       
 
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      
+      <label class="md-nav__link" for="nav-3">
+        Development
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Development" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
   
   
     
@@ -336,11 +485,8 @@
     </li>
   
 
-    
-      
-      
-      
-
+          
+            
   
   
   
@@ -351,33 +497,21 @@
     </li>
   
 
-    
-      
-      
-      
-
+          
+            
   
   
   
     <li class="md-nav__item">
-      <a href="../changelog/" class="md-nav__link">
-        Changelog
+      <a href="../coverage/" class="md-nav__link">
+        Coverage report
       </a>
     </li>
   
 
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../credits/" class="md-nav__link">
-        Credits
-      </a>
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -579,7 +713,7 @@ and we will squash them ourselves if needed, before merging.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../reference/cli/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../reference/plugin/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -588,7 +722,7 @@ and we will squash them ourselves if needed, before merging.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                cli.py
+                plugin.py
               </div>
             </div>
           </a>
@@ -633,7 +767,7 @@ and we will squash them ourselves if needed, before merging.</p>
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.tabs'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)

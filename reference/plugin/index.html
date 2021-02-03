@@ -734,8 +734,7 @@ This hook is used to add the coverage page to the navigation, using a temporary 
       <a class="headerlink" href="#mkdocs_coverage.plugin.MkDocsCoveragePlugin.on_post_build" title="Permanent link">¤</a></h3>
 <div class="doc doc-contents ">
 <p>Copy the coverage HTML report into the site directory.</p>
-<p>Hook for the <a href="https://www.mkdocs.org/user-guide/plugins/#on_post_build"><code>on_post_build</code> event</a>.
-This hook is used to teardown all the handlers that were instantiated and cached during documentation buildup.</p>
+<p>Hook for the <a href="https://www.mkdocs.org/user-guide/plugins/#on_post_build"><code>on_post_build</code> event</a>.</p>
 <p>Rename <code>index.html</code> into <code>covindex.html</code>.
 Replace every occurrence of <code>index.html</code> by <code>covindex.html</code> in the HTML files.</p>
 <p><strong>Parameters:</strong></p>
@@ -775,7 +774,6 @@ Replace every occurrence of <code>index.html</code> by <code>covindex.html</code
 <span class="sd">    Copy the coverage HTML report into the site directory.</span>
 
 <span class="sd">    Hook for the [`on_post_build` event](https://www.mkdocs.org/user-guide/plugins/#on_post_build).</span>
-<span class="sd">    This hook is used to teardown all the handlers that were instantiated and cached during documentation buildup.</span>
 
 <span class="sd">    Rename `index.html` into `covindex.html`.</span>
 <span class="sd">    Replace every occurrence of `index.html` by `covindex.html` in the HTML files.</span>
@@ -795,7 +793,7 @@ Replace every occurrence of <code>index.html</code> by <code>covindex.html</code
     <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">site_coverage_dir</span> <span class="o">/</span> <span class="s2">"tmp.html"</span><span class="p">,</span> <span class="n">site_coverage_dir</span> <span class="o">/</span> <span class="s2">"index.html"</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">html_file</span> <span class="ow">in</span> <span class="n">site_coverage_dir</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">html_file</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s2">".html"</span> <span class="ow">and</span> <span class="n">html_file</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s2">"index.html"</span><span class="p">:</span>
-            <span class="n">html_file</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"index\.html"</span><span class="p">,</span> <span class="s2">"covindex.html"</span><span class="p">,</span> <span class="n">html_file</span><span class="o">.</span><span class="n">read_text</span><span class="p">()))</span>
+            <span class="n">html_file</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'href="index\.html"'</span><span class="p">,</span> <span class="s1">'href="covindex.html"'</span><span class="p">,</span> <span class="n">html_file</span><span class="o">.</span><span class="n">read_text</span><span class="p">()))</span>
 </code></pre>
 </div>
 </details>

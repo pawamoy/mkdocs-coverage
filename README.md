@@ -44,3 +44,24 @@ python3.6 -m pip install --user pipx
 
 pipx install --python python3.6 mkdocs-coverage
 ```
+
+## Usage
+
+```yaml
+# mkdocs.yml
+
+nav:
+- Coverage report: coverage.md
+
+plugins:
+- coverage:
+    page_name: coverage  # default
+    html_report_dir: htmlcov  # default
+```
+
+Now serve your documentation,
+and go to http://localhost:8000/coverage/
+to see your coverage report!
+
+![coverage index](https://user-images.githubusercontent.com/3999221/106802970-f4376a80-6663-11eb-8665-e9e09f0f4ac0.png)
+![coverage module](https://user-images.githubusercontent.com/3999221/106803017-fe596900-6663-11eb-9df9-973755c5b63e.png)

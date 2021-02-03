@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.2.1](https://github.com/pawamoy/mkdocs-coverage/releases/tag/0.2.1) - 2021-02-03
+
+<small>[Compare with 0.2.0](https://github.com/pawamoy/mkdocs-coverage/compare/0.2.0...0.2.1)</small>
+
+### Bug Fixes
+- Don't replace `index.html` everywhere ([ca1da70](https://github.com/pawamoy/mkdocs-coverage/commit/ca1da7003282b20af4cda72ae0ae62849dab1f63) by Timothée Mazzucotelli). [Issue #2](https://github.com/pawamoy/mkdocs-coverage/issues/2)
+
+
 ## [0.2.0](https://github.com/pawamoy/mkdocs-coverage/releases/tag/0.2.0) - 2021-02-03
 
 <small>[Compare with 0.1.0](https://github.com/pawamoy/mkdocs-coverage/compare/0.1.0...0.2.0)</small>

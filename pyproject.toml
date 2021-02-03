@@ -50,8 +50,8 @@ pytest-xdist = "^2.2.0"
 toml = "^0.10.2"
 wemake-python-styleguide = "^0.14.1"
 
-[tool.poetry.scripts]
-mkdocs-coverage = "mkdocs_coverage.cli:main"
+[tool.poetry.plugins."mkdocs.plugins"]
+coverage = "mkdocs_coverage.plugin:MkDocsCoveragePlugin"
 
 [tool.black]
 line-length = 120

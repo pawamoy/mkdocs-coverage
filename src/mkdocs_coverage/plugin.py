@@ -82,7 +82,6 @@ class MkDocsCoveragePlugin(BasePlugin):
         Copy the coverage HTML report into the site directory.
 
         Hook for the [`on_post_build` event](https://www.mkdocs.org/user-guide/plugins/#on_post_build).
-        This hook is used to teardown all the handlers that were instantiated and cached during documentation buildup.
 
         Rename `index.html` into `covindex.html`.
         Replace every occurrence of `index.html` by `covindex.html` in the HTML files.
@@ -102,4 +101,4 @@ class MkDocsCoveragePlugin(BasePlugin):
         shutil.move(site_coverage_dir / "tmp.html", site_coverage_dir / "index.html")
         for html_file in site_coverage_dir.iterdir():
             if html_file.suffix == ".html" and html_file.name != "index.html":
-                html_file.write_text(re.sub(r"index\.html", "covindex.html", html_file.read_text()))
+                html_file.write_text(re.sub(r'href="index\.html"', 'href="covindex.html"', html_file.read_text()))

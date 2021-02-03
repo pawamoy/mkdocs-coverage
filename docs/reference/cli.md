@@ -1,0 +1,1 @@
+::: mkdocs_coverage.cli

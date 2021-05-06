@@ -1,6 +1,6 @@
 # Changes here will be overwritten by Copier
-_commit: 0.3.1
-_src_path: gh:pawamoy/copier-poetry
+_commit: e9e472d
+_src_path: gh:pawamoy/copier-pdm
 author_email: pawamoy@pm.me
 author_fullname: "Timoth\xE9e Mazzucotelli"
 author_username: pawamoy
@@ -8,8 +8,7 @@ copyright_date: '2021'
 copyright_holder: "Timoth\xE9e Mazzucotelli"
 copyright_holder_email: pawamoy@pm.me
 copyright_license: ISC License
-project_description: MkDocs plugin to integrate your coverage HTML report into your
-  site.
+project_description: MkDocs plugin to integrate your coverage HTML report into your site.
 project_name: MkDocs Coverage Plugin
 python_package_command_line_name: mkdocs-coverage
 python_package_distribution_name: mkdocs-coverage

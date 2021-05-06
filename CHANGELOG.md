@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.2.2](https://github.com/pawamoy/mkdocs-coverage/releases/tag/0.2.2) - 2021-05-06
+
+<small>[Compare with 0.2.1](https://github.com/pawamoy/mkdocs-coverage/compare/0.2.1...0.2.2)</small>
+
+### Packaging
+
+- Switch to PDM as project management tool.
+- Stop including README.md and pyproject.toml in wheels. It was causing errors in PDM and Poetry when installed in parallel.
+
+
 ## [0.2.1](https://github.com/pawamoy/mkdocs-coverage/releases/tag/0.2.1) - 2021-02-03
 
 <small>[Compare with 0.2.0](https://github.com/pawamoy/mkdocs-coverage/compare/0.2.0...0.2.1)</small>

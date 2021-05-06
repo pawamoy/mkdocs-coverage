@@ -3,12 +3,14 @@ site_description: "MkDocs plugin to integrate your coverage HTML report into you
 site_url: "https://pawamoy.github.io/mkdocs-coverage"
 repo_url: "https://github.com/pawamoy/mkdocs-coverage"
 repo_name: "pawamoy/mkdocs-coverage"
+site_dir: "site"
 
 nav:
 - Home:
   - Overview: index.md
   - Changelog: changelog.md
   - Credits: credits.md
+  - License: license.md
 - Code Reference:
   - loggers.py: reference/loggers.md
   - plugin.py: reference/plugin.md
@@ -31,9 +33,10 @@ extra_css:
 
 markdown_extensions:
 - admonition
-- markdown_include.include
 - pymdownx.emoji
 - pymdownx.magiclink
+- pymdownx.snippets:
+    check_paths: true
 - pymdownx.superfences
 - pymdownx.tabbed
 - pymdownx.tasklist
@@ -47,3 +50,5 @@ plugins:
 - mkdocstrings:
     watch:
     - src/mkdocs_coverage
+- macros:
+    module_name: docs/macros

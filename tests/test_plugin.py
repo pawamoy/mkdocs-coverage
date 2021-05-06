@@ -15,5 +15,5 @@ def test_plugin():
     for html_file in site_coverage_dir.iterdir():
         if html_file.suffix == ".html" and html_file.name != "index.html":
             text = html_file.read_text()
-            assert not re.search(r"covcovindex", text)
-            assert not re.search(r'href="index.html"', text)
+            assert not re.search("covcovindex", text)
+            assert not re.search('href="index.html"', text)

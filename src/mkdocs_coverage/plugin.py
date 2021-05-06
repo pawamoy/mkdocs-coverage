@@ -42,7 +42,7 @@ class MkDocsCoveragePlugin(BasePlugin):
         Returns:
             The modified files collection.
         """
-        page_contents = textwrap.dedent(
+        page_contents = textwrap.dedent(  # noqa: WPS462
             """
             <style>
             .md-content {

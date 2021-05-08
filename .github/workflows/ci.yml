@@ -101,7 +101,7 @@ jobs:
     - name: Install dependencies
       run: |
         pdm use -f ${{ matrix.python-version }}
-        pdm install -s duty -s tests
+        pdm install -s duty -s tests -s docs
 
     - name: Run the test suite
       run: pdm run duty test

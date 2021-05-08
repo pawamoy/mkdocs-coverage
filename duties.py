@@ -189,6 +189,7 @@ def clean(ctx):
     ctx.run("rm -rf tests/.pytest_cache")
     ctx.run("rm -rf build")
     ctx.run("rm -rf dist")
+    ctx.run("rm -rf htmlcov")
     ctx.run("rm -rf pip-wheel-metadata")
     ctx.run("rm -rf site")
     ctx.run("find . -type d -name __pycache__ | xargs rm -rf")

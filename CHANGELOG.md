@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.2.4](https://github.com/pawamoy/mkdocs-coverage/releases/tag/0.2.4) - 2021-05-20
+
+<small>[Compare with 0.2.3](https://github.com/pawamoy/mkdocs-coverage/compare/0.2.3...0.2.4)</small>
+
+### Bug Fixes
+- Reset iframe height between page changes ([5519c13](https://github.com/pawamoy/mkdocs-coverage/commit/5519c1352759f36b5ff3e1f800ac41fd12cd4acb) by Timothée Mazzucotelli). [Issue #1](https://github.com/pawamoy/mkdocs-coverage/issues/1)
+
+
 ## [0.2.3](https://github.com/pawamoy/mkdocs-coverage/releases/tag/0.2.3) - 2021-05-16
 
 <small>[Compare with 0.2.2](https://github.com/pawamoy/mkdocs-coverage/compare/0.2.2...0.2.3)</small>

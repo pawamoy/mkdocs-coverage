@@ -736,13 +736,20 @@ This hook is used to add the coverage page to the navigation, using a temporary 
 <span class="sd">        }</span>
 <span class="sd">        &lt;/style&gt;</span>
 
+<span class="sd">        &lt;iframe id=&quot;coviframe&quot; src=&quot;covindex.html&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; onload=&quot;resizeIframe();&quot; width=&quot;100%&quot;&gt;&lt;/iframe&gt;</span>
+
 <span class="sd">        &lt;script&gt;</span>
-<span class="sd">        function resizeIframe(obj) {</span>
-<span class="sd">            obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + &#39;px&#39;;</span>
+<span class="sd">        var coviframe = document.getElementById(&quot;coviframe&quot;);</span>
+
+<span class="sd">        function resizeIframe() {</span>
+<span class="sd">            coviframe.style.height = coviframe.contentWindow.document.documentElement.offsetHeight + &#39;px&#39;;</span>
+<span class="sd">        }</span>
+
+<span class="sd">        coviframe.contentWindow.document.body.onclick = function() {</span>
+<span class="sd">            coviframe.contentWindow.location.reload();</span>
 <span class="sd">        }</span>
 <span class="sd">        &lt;/script&gt;</span>
 
-<span class="sd">        &lt;iframe src=&quot;covindex.html&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; onload=&quot;resizeIframe(this)&quot; width=&quot;100%&quot;&gt;&lt;/iframe&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">tempdir</span> <span class="o">=</span> <span class="n">mkdtemp</span><span class="p">()</span>

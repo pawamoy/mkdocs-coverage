@@ -42,7 +42,12 @@ class MkDocsCoveragePlugin(BasePlugin):
         Returns:
             The modified files collection.
         """
-        page_contents = textwrap.dedent(  # noqa: WPS462
+        if config["use_directory_urls"]:
+            covindex = "covindex.html"
+        else:
+            covindex = f"{self.config['page_name']}/covindex.html"
+
+        style = textwrap.dedent(  # noqa: WPS462
             """
             <style>
             .md-content {
@@ -52,9 +57,24 @@ class MkDocsCoveragePlugin(BasePlugin):
                 display: none;
             }
             </style>
+            """
+        )
 
-            <iframe id="coviframe" src="covindex.html" frameborder="0" scrolling="no" onload="resizeIframe();" width="100%"></iframe>
+        iframe = textwrap.dedent(  # noqa: WPS462
+            f"""
+            <iframe
+                id="coviframe"
+                src="{covindex}"
+                frameborder="0"
+                scrolling="no"
+                onload="resizeIframe();"
+                width="100%">
+            </iframe>
+            """
+        )
 
+        script = textwrap.dedent(  # noqa: WPS462
+            """
             <script>
             var coviframe = document.getElementById("coviframe");
 
@@ -69,6 +89,7 @@ class MkDocsCoveragePlugin(BasePlugin):
 
             """,
         )
+        page_contents = style + iframe + script
         tempdir = mkdtemp()
         page_name = self.config["page_name"] + ".md"
         tempfile = Path(tempdir) / page_name
@@ -97,15 +118,28 @@ class MkDocsCoveragePlugin(BasePlugin):
             config: The MkDocs config object.
             kwargs: Additional arguments passed by MkDocs.
         """
-        site_coverage_dir = Path(config["site_dir"]) / self.config["page_name"]
-        shutil.move(site_coverage_dir / "index.html", site_coverage_dir / "tmp.html")
+        site_dir = Path(config["site_dir"])
+        coverage_dir = site_dir / self.config["page_name"]
+        tmp_index = site_dir / ".coverage-tmp.html"
+
+        if config["use_directory_urls"]:
+            shutil.move(coverage_dir / "index.html", tmp_index)
+        else:
+            shutil.move(coverage_dir.with_suffix(".html"), tmp_index)
+
         try:
-            copy_tree(self.config["html_report_dir"], str(site_coverage_dir))
+            copy_tree(self.config["html_report_dir"], str(coverage_dir))
         except DistutilsFileError:
             log.warning("No such HTML report directory: " + self.config["html_report_dir"])
             return
-        shutil.move(site_coverage_dir / "index.html", site_coverage_dir / "covindex.html")
-        shutil.move(site_coverage_dir / "tmp.html", site_coverage_dir / "index.html")
-        for html_file in site_coverage_dir.iterdir():
+
+        shutil.move(coverage_dir / "index.html", coverage_dir / "covindex.html")
+
+        if config["use_directory_urls"]:
+            shutil.move(str(tmp_index), coverage_dir / "index.html")
+        else:
+            shutil.move(str(tmp_index), coverage_dir.with_suffix(".html"))
+
+        for html_file in coverage_dir.iterdir():
             if html_file.suffix == ".html" and html_file.name != "index.html":
                 html_file.write_text(re.sub(r'href="index\.html"', 'href="covindex.html"', html_file.read_text()))

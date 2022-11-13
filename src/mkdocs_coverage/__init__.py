@@ -4,6 +4,6 @@ MkDocs Coverage Plugin package.
 MkDocs plugin to integrate your coverage HTML report into your site.
 """
 
-from typing import List
+from __future__ import annotations
 
-__all__: List[str] = []  # noqa: WPS410 (the only __variable__ we use)
+__all__: list[str] = []  # noqa: WPS410 (the only __variable__ we use)

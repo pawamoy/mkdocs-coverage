@@ -1,5 +1,7 @@
 """Logging functions."""
 
+from __future__ import annotations
+
 import logging
 from typing import Any, MutableMapping, Tuple
 
@@ -9,7 +11,7 @@ from mkdocs.utils import warning_filter
 class LoggerAdapter(logging.LoggerAdapter):
     """A logger adapter to prefix messages."""
 
-    def __init__(self, prefix, logger):
+    def __init__(self, prefix: str, logger: logging.Logger):
         """
         Initialize the object.
 
@@ -20,7 +22,7 @@ class LoggerAdapter(logging.LoggerAdapter):
         super().__init__(logger, {})
         self.prefix = prefix
 
-    def process(self, msg: str, kwargs) -> Tuple[Any, MutableMapping[str, Any]]:
+    def process(self, msg: str, kwargs: MutableMapping[str, Any]) -> Tuple[Any, MutableMapping[str, Any]]:
         """
         Process the message.
 

@@ -8,42 +8,17 @@
 
 MkDocs plugin to integrate your coverage HTML report into your site.
 
-## Requirements
-
-MkDocs Coverage Plugin requires Python 3.6 or above.
-
-<details>
-<summary>To install Python 3.6, I recommend using <a href="https://github.com/pyenv/pyenv"><code>pyenv</code></a>.</summary>
-
-```bash
-# install pyenv
-git clone https://github.com/pyenv/pyenv ~/.pyenv
-
-# setup pyenv (you should also put these three lines in .bashrc or similar)
-export PATH="${HOME}/.pyenv/bin:${PATH}"
-export PYENV_ROOT="${HOME}/.pyenv"
-eval "$(pyenv init -)"
-
-# install Python 3.6
-pyenv install 3.6.12
-
-# make it available globally
-pyenv global system 3.6.12
-```
-</details>
-
 ## Installation
 
 With `pip`:
 ```bash
-python3.6 -m pip install mkdocs-coverage
+pip install mkdocs-coverage
 ```
 
 With [`pipx`](https://github.com/pipxproject/pipx):
 ```bash
-python3.6 -m pip install --user pipx
-
-pipx install --python python3.6 mkdocs-coverage
+python3.7 -m pip install --user pipx
+pipx install mkdocs-coverage
 ```
 
 ## Usage

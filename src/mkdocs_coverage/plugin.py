@@ -50,11 +50,8 @@ class MkDocsCoveragePlugin(BasePlugin):
         style = textwrap.dedent(  # noqa: WPS462
             """
             <style>
-            .md-content {
-                max-width: none !important;
-            }
-            article h1, article > a {
-                display: none;
+            article h1, article > a, .md-sidebar--secondary {
+                display: none !important;
             }
             </style>
             """

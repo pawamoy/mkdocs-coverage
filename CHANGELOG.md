@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.2.6](https://github.com/pawamoy/mkdocs-coverage/releases/tag/0.2.6) - 2022-11-13
+
+<small>[Compare with 0.2.5](https://github.com/pawamoy/mkdocs-coverage/compare/0.2.5...0.2.6)</small>
+
+### Bug Fixes
+- Fix iframe width for recent Material versions ([67c530b](https://github.com/pawamoy/mkdocs-coverage/commit/67c530be834f2e0af251d3bc1db5138a54e6de72) by Timothée Mazzucotelli).
+
+
 ## [0.2.5](https://github.com/pawamoy/mkdocs-coverage/releases/tag/0.2.5) - 2021-12-16
 
 <small>[Compare with 0.2.4](https://github.com/pawamoy/mkdocs-coverage/compare/0.2.4...0.2.5)</small>

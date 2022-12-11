@@ -1,5 +1,7 @@
 """This module contains the `mkdocs_coverage` plugin."""
 
+from __future__ import annotations
+
 import re
 import shutil
 import textwrap
@@ -7,7 +9,7 @@ from distutils.dir_util import copy_tree
 from distutils.errors import DistutilsFileError
 from pathlib import Path
 from tempfile import mkdtemp
-from typing import Sequence, Tuple
+from typing import Any, Sequence, Tuple
 
 from mkdocs.config import Config
 from mkdocs.config.config_options import Type as MkType
@@ -27,7 +29,7 @@ class MkDocsCoveragePlugin(BasePlugin):
         ("html_report_dir", MkType(str, default="htmlcov")),
     )
 
-    def on_files(self, files: Files, config: Config, **kwargs) -> Files:
+    def on_files(self, files: Files, config: Config, **kwargs: Any) -> Files:
         """
         Add the coverage page to the navigation.
 
@@ -37,7 +39,7 @@ class MkDocsCoveragePlugin(BasePlugin):
         Arguments:
             files: The files collection.
             config: The MkDocs config object.
-            kwargs: Additional arguments passed by MkDocs.
+            **kwargs: Additional arguments passed by MkDocs.
 
         Returns:
             The modified files collection.
@@ -50,11 +52,8 @@ class MkDocsCoveragePlugin(BasePlugin):
         style = textwrap.dedent(  # noqa: WPS462
             """
             <style>
-            .md-content {
-                max-width: none !important;
-            }
-            article h1, article > a {
-                display: none;
+            article h1, article > a, .md-sidebar--secondary {
+                display: none !important;
             }
             </style>
             """
@@ -105,7 +104,7 @@ class MkDocsCoveragePlugin(BasePlugin):
         )
         return files
 
-    def on_post_build(self, config: Config, **kwargs) -> None:  # noqa: W0613,R0201 (unused arguments, cannot be static)
+    def on_post_build(self, config: Config, **kwargs: Any) -> None:  # noqa: W0613,R0201
         """
         Copy the coverage HTML report into the site directory.
 
@@ -116,7 +115,7 @@ class MkDocsCoveragePlugin(BasePlugin):
 
         Arguments:
             config: The MkDocs config object.
-            kwargs: Additional arguments passed by MkDocs.
+            **kwargs: Additional arguments passed by MkDocs.
         """
         site_dir = Path(config["site_dir"])
         coverage_dir = site_dir / self.config["page_name"]

@@ -1,12 +1,12 @@
 [build-system]
-requires = ["pdm-pep517"]
-build-backend = "pdm.pep517.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
 [project]
 name = "mkdocs-coverage"
 description = "MkDocs plugin to integrate your coverage HTML report into your site."
 authors = [{name = "Timothée Mazzucotelli", email = "pawamoy@pm.me"}]
-license = "ISC"
+license = {text = "ISC"}
 readme = "README.md"
 requires-python = ">=3.7"
 keywords = []
@@ -53,7 +53,7 @@ editable-backend = "editables"
 coverage = "mkdocs_coverage.plugin:MkDocsCoveragePlugin"
 
 [tool.pdm.dev-dependencies]
-duty = ["duty>=0.8"]
+duty = ["duty>=0.10"]
 docs = [
     "black>=23.1",
     "mkdocs>=1.3",

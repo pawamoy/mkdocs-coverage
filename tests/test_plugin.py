@@ -7,7 +7,7 @@ from mkdocs.commands.build import build
 from mkdocs.config.base import load_config
 
 
-def test_plugin():
+def test_plugin() -> None:
     """Build our own documentation."""
     config = load_config()
     build(config)

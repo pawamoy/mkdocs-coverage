@@ -9,14 +9,16 @@ from distutils.dir_util import copy_tree
 from distutils.errors import DistutilsFileError
 from pathlib import Path
 from tempfile import mkdtemp
-from typing import Any, Sequence, Tuple
+from typing import TYPE_CHECKING, Any, Sequence
 
-from mkdocs.config import Config
 from mkdocs.config.config_options import Type as MkType
 from mkdocs.plugins import BasePlugin
 from mkdocs.structure.files import File, Files
 
 from mkdocs_coverage.loggers import get_logger
+
+if TYPE_CHECKING:
+    from mkdocs.config import Config
 
 log = get_logger(__name__)
 
@@ -24,14 +26,13 @@ log = get_logger(__name__)
 class MkDocsCoveragePlugin(BasePlugin):
     """The MkDocs plugin to integrate the coverage HTML report in the site."""
 
-    config_scheme: Sequence[Tuple[str, MkType]] = (
+    config_scheme: Sequence[tuple[str, MkType]] = (
         ("page_name", MkType(str, default="coverage")),
         ("html_report_dir", MkType(str, default="htmlcov")),
     )
 
-    def on_files(self, files: Files, config: Config, **kwargs: Any) -> Files:
-        """
-        Add the coverage page to the navigation.
+    def on_files(self, files: Files, config: Config, **kwargs: Any) -> Files:  # noqa: ARG002
+        """Add the coverage page to the navigation.
 
         Hook for the [`on_files` event](https://www.mkdocs.org/user-guide/plugins/#on_files).
         This hook is used to add the coverage page to the navigation, using a temporary file.
@@ -44,22 +45,19 @@ class MkDocsCoveragePlugin(BasePlugin):
         Returns:
             The modified files collection.
         """
-        if config["use_directory_urls"]:
-            covindex = "covindex.html"
-        else:
-            covindex = f"{self.config['page_name']}/covindex.html"
+        covindex = "covindex.html" if config["use_directory_urls"] else f"{self.config['page_name']}/covindex.html"
 
-        style = textwrap.dedent(  # noqa: WPS462
+        style = textwrap.dedent(
             """
             <style>
             article h1, article > a, .md-sidebar--secondary {
                 display: none !important;
             }
             </style>
-            """
+            """,
         )
 
-        iframe = textwrap.dedent(  # noqa: WPS462
+        iframe = textwrap.dedent(
             f"""
             <iframe
                 id="coviframe"
@@ -69,10 +67,10 @@ class MkDocsCoveragePlugin(BasePlugin):
                 onload="resizeIframe();"
                 width="100%">
             </iframe>
-            """
+            """,
         )
 
-        script = textwrap.dedent(  # noqa: WPS462
+        script = textwrap.dedent(
             """
             <script>
             var coviframe = document.getElementById("coviframe");
@@ -104,9 +102,8 @@ class MkDocsCoveragePlugin(BasePlugin):
         )
         return files
 
-    def on_post_build(self, config: Config, **kwargs: Any) -> None:  # noqa: W0613,R0201
-        """
-        Copy the coverage HTML report into the site directory.
+    def on_post_build(self, config: Config, **kwargs: Any) -> None:  # noqa: ARG002
+        """Copy the coverage HTML report into the site directory.
 
         Hook for the [`on_post_build` event](https://www.mkdocs.org/user-guide/plugins/#on_post_build).
 

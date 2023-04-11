@@ -1,0 +1,3 @@
+* [mkdocs_coverage](mkdocs_coverage/index.md)
+    * [loggers](mkdocs_coverage/loggers.md)
+    * [plugin](mkdocs_coverage/plugin.md)

@@ -5,8 +5,6 @@ from __future__ import annotations
 import re
 import shutil
 import textwrap
-from distutils.dir_util import copy_tree
-from distutils.errors import DistutilsFileError
 from pathlib import Path
 from tempfile import mkdtemp
 from typing import TYPE_CHECKING, Any, Sequence
@@ -123,10 +121,11 @@ class MkDocsCoveragePlugin(BasePlugin):
         else:
             shutil.move(coverage_dir.with_suffix(".html"), tmp_index)
 
+        shutil.rmtree(str(coverage_dir), ignore_errors=True)
         try:
-            copy_tree(self.config["html_report_dir"], str(coverage_dir))
-        except DistutilsFileError:
-            log.warning("No such HTML report directory: " + self.config["html_report_dir"])
+            shutil.copytree(self.config["html_report_dir"], str(coverage_dir))
+        except FileNotFoundError:
+            log.warning(f"No such HTML report directory: {self.config['html_report_dir']}")
             return
 
         shutil.move(coverage_dir / "index.html", coverage_dir / "covindex.html")

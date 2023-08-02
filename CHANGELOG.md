@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [1.0.0](https://github.com/pawamoy/mkdocs-coverage/releases/tag/1.0.0) - 2023-08-02
+
+<small>[Compare with 0.2.7](https://github.com/pawamoy/mkdocs-coverage/compare/0.2.7...1.0.0)</small>
+
+### Breaking Changes
+
+- Drop support for Python 3.7
+
+### Code Refactoring
+
+- Stop using deprecated warning filter ([fb4d9e6](https://github.com/pawamoy/mkdocs-coverage/commit/fb4d9e6f7b34ecc66c596b7dc4f475a44ce0404c) by Timothée Mazzucotelli).
+
 ## [0.2.7](https://github.com/pawamoy/mkdocs-coverage/releases/tag/0.2.7) - 2023-04-11
 
 <small>[Compare with 0.2.6](https://github.com/pawamoy/mkdocs-coverage/compare/0.2.6...0.2.7)</small>

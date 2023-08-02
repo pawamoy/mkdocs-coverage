@@ -13,12 +13,12 @@ from mkdocs.config.config_options import Type as MkType
 from mkdocs.plugins import BasePlugin
 from mkdocs.structure.files import File, Files
 
-from mkdocs_coverage.loggers import get_logger
+from mkdocs_coverage.loggers import get_plugin_logger
 
 if TYPE_CHECKING:
     from mkdocs.config import Config
 
-log = get_logger(__name__)
+log = get_plugin_logger(__name__)
 
 
 class MkDocsCoveragePlugin(BasePlugin):

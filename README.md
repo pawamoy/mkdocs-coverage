@@ -4,18 +4,20 @@
 [![documentation](https://img.shields.io/badge/docs-mkdocs%20material-blue.svg?style=flat)](https://pawamoy.github.io/mkdocs-coverage/)
 [![pypi version](https://img.shields.io/pypi/v/mkdocs-coverage.svg)](https://pypi.org/project/mkdocs-coverage/)
 [![gitpod](https://img.shields.io/badge/gitpod-workspace-blue.svg?style=flat)](https://gitpod.io/#https://github.com/pawamoy/mkdocs-coverage)
-[![gitter](https://badges.gitter.im/join%20chat.svg)](https://gitter.im/mkdocs-coverage/community)
+[![gitter](https://badges.gitter.im/join%20chat.svg)](https://app.gitter.im/#/room/#mkdocs-coverage:gitter.im)
 
 MkDocs plugin to integrate your coverage HTML report into your site.
 
 ## Installation
 
 With `pip`:
+
 ```bash
 pip install mkdocs-coverage
 ```
 
 With [`pipx`](https://github.com/pipxproject/pipx):
+
 ```bash
 python3.8 -m pip install --user pipx
 pipx install mkdocs-coverage

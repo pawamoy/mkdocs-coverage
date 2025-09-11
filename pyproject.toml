@@ -45,7 +45,7 @@ Gitter = "https://gitter.im/mkdocs-coverage/community"
 Funding = "https://github.com/sponsors/pawamoy"
 
 [project.entry-points."mkdocs.plugins"]
-coverage = "mkdocs_coverage.plugin:MkDocsCoveragePlugin"
+coverage = "mkdocs_coverage:MkDocsCoveragePlugin"
 
 [tool.pdm.version]
 source = "call"
@@ -96,7 +96,6 @@ ci = [
     "markdown-callouts>=0.4",
     "markdown-exec>=1.8",
     "mkdocs>=1.6",
-    "mkdocs-coverage>=1.0",
     "mkdocs-git-revision-date-localized-plugin>=1.2",
     "mkdocs-llmstxt>=0.2",
     "mkdocs-material>=9.5",

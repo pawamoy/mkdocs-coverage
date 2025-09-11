@@ -1,5 +1,3 @@
-"""This module contains the `mkdocs_coverage` plugin."""
-
 from __future__ import annotations
 
 import re
@@ -15,12 +13,12 @@ from mkdocs.config.config_options import Type as MkType
 from mkdocs.plugins import BasePlugin
 from mkdocs.structure.files import File, Files
 
-from mkdocs_coverage.loggers import get_plugin_logger
+from mkdocs_coverage._internal.loggers import _get_plugin_logger
 
 if TYPE_CHECKING:
     from mkdocs.config.defaults import MkDocsConfig
 
-log = get_plugin_logger(__name__)
+_log = _get_plugin_logger(__name__)
 
 
 class MkDocsCoverageConfig(Config):
@@ -32,9 +30,13 @@ class MkDocsCoverageConfig(Config):
         message="The 'page_name' configuration option is deprecated and will be removed in a future release. "
         "Use the 'page_path' configuration option instead.",
     )
+    """Deprecated. Name of the coverage page (without .md suffix)."""
     page_path = MkType(str, default="coverage")
+    """Path to the coverage page (without .md suffix)."""
     html_report_dir = MkType(str, default="htmlcov")
+    """Path to the HTML coverage report directory."""
     placeholder = MkType(str, default="<!-- mkdocs-coverage -->")
+    """Placeholder in the coverage page to insert the coverage report."""
 
 
 class MkDocsCoveragePlugin(BasePlugin[MkDocsCoverageConfig]):
@@ -147,7 +149,7 @@ class MkDocsCoveragePlugin(BasePlugin[MkDocsCoverageConfig]):
         try:
             shutil.copytree(self.config.html_report_dir, str(coverage_dir))
         except FileNotFoundError:
-            log.warning(f"No such HTML report directory: {self.config.html_report_dir}")
+            _log.warning(f"No such HTML report directory: {self.config.html_report_dir}")
             return
 
         shutil.move(str(coverage_dir / "index.html"), coverage_dir / "covindex.html")

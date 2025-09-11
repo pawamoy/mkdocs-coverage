@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [1.2.0](https://github.com/pawamoy/mkdocs-coverage/releases/tag/1.2.0) - 2025-09-11
+
+<small>[Compare with 1.1.0](https://github.com/pawamoy/mkdocs-coverage/compare/1.1.0...1.2.0)</small>
+
+### Features
+
+- Add `placeholder` option to insert report in existing page ([f406efa](https://github.com/pawamoy/mkdocs-coverage/commit/f406efa6de548115f3067e8b91717da64b69456a) by HeinrichAD). [PR-11](https://github.com/pawamoy/mkdocs-coverage/pull/11)
+
+### Code Refactoring
+
+- Move submodules under internal folder ([0bb1479](https://github.com/pawamoy/mkdocs-coverage/commit/0bb1479a6ff0d364b4ed6b378138bd19e941029e) by Timothée Mazzucotelli).
+
 ## [1.1.0](https://github.com/pawamoy/mkdocs-coverage/releases/tag/1.1.0) - 2024-06-11
 
 <small>[Compare with 1.0.0](https://github.com/pawamoy/mkdocs-coverage/compare/1.0.0...1.1.0)</small>

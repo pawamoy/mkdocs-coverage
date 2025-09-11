@@ -25,17 +25,20 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        fetch-tags: true
 
-    - name: Fetch all tags
-      run: git fetch --depth=1 --tags
-
-    - name: Set up Python
+    - name: Setup Python
       uses: actions/setup-python@v5
       with:
-        python-version: "3.11"
+        python-version: "3.12"
 
-    - name: Install uv
-      run: pip install uv
+    - name: Setup uv
+      uses: astral-sh/setup-uv@v5
+      with:
+        enable-cache: true
+        cache-dependency-glob: pyproject.toml
 
     - name: Install dependencies
       run: make setup
@@ -52,8 +55,16 @@ jobs:
     - name: Check for breaking changes in the API
       run: make check-api
 
+    - name: Store objects inventory for tests
+      uses: actions/upload-artifact@v4
+      with:
+        name: objects.inv
+        path: site/objects.inv
+
   tests:
 
+    needs:
+    - quality
     strategy:
       matrix:
         os:
@@ -61,12 +72,12 @@ jobs:
         - macos-latest
         - windows-latest
         python-version:
-        - "3.8"
         - "3.9"
         - "3.10"
         - "3.11"
         - "3.12"
         - "3.13"
+        - "3.14"
         resolution:
         - highest
         - lowest-direct
@@ -76,25 +87,38 @@ jobs:
         - os: windows-latest
           resolution: lowest-direct
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.python-version == '3.13' }}
+    continue-on-error: ${{ matrix.python-version == '3.14' }}
 
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        fetch-tags: true
 
-    - name: Set up Python
+    - name: Setup Python
       uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
         allow-prereleases: true
 
-    - name: Install uv
-      run: pip install uv
+    - name: Setup uv
+      uses: astral-sh/setup-uv@v5
+      with:
+        enable-cache: true
+        cache-dependency-glob: pyproject.toml
+        cache-suffix: ${{ matrix.resolution }}
 
     - name: Install dependencies
       env:
         UV_RESOLUTION: ${{ matrix.resolution }}
       run: make setup
+
+    - name: Download objects inventory
+      uses: actions/download-artifact@v4
+      with:
+        name: objects.inv
+        path: site/
 
     - name: Run the test suite
       run: make test

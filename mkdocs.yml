@@ -19,9 +19,7 @@ nav:
   - Changelog: changelog.md
   - Credits: credits.md
   - License: license.md
-# defer to gen-files + literate-nav
-- API reference:
-  - MkDocs Coverage Plugin: reference/
+- API reference: reference/api.md
 - Development:
   - Contributing: contributing.md
   - Code of Conduct: code_of_conduct.md
@@ -41,7 +39,8 @@ theme:
   - content.code.copy
   - content.tooltips
   - navigation.footer
-  - navigation.indexes
+  - navigation.instant.preview
+  - navigation.path
   - navigation.sections
   - navigation.tabs
   - navigation.tabs.sticky
@@ -73,6 +72,9 @@ extra_css:
 - css/material.css
 - css/mkdocstrings.css
 
+extra_javascript:
+- js/feedback.js
+
 markdown_extensions:
 - attr_list
 - admonition
@@ -98,12 +100,9 @@ markdown_extensions:
 
 plugins:
 - search
+- autorefs
 - markdown-exec
-- gen-files:
-    scripts:
-    - scripts/gen_ref_nav.py
-- literate-nav:
-    nav_file: SUMMARY.md
+- section-index
 - coverage
 - mkdocstrings:
     handlers:
@@ -112,6 +111,7 @@ plugins:
         - https://docs.python.org/3/objects.inv
         paths: [src]
         options:
+          backlinks: tree
           docstring_options:
             ignore_init_summary: true
           docstring_section_style: list
@@ -123,13 +123,22 @@ plugins:
           show_root_heading: true
           show_root_full_path: false
           show_signature_annotations: true
+          show_source: true
           show_symbol_type_heading: true
           show_symbol_type_toc: true
           signature_crossrefs: true
           summary: true
-- git-committers:
+- llmstxt:
+    full_output: llms-full.txt
+    sections:
+      Usage:
+      - index.md
+      API:
+      - reference/api.md
+- git-revision-date-localized:
     enabled: !ENV [DEPLOY, false]
-    repository: pawamoy/mkdocs-coverage
+    enable_creation_date: true
+    type: timeago
 - minify:
     minify_html: !ENV [DEPLOY, false]
 - group:
@@ -149,3 +158,15 @@ extra:
     link: https://gitter.im/mkdocs-coverage/community
   - icon: fontawesome/brands/python
     link: https://pypi.org/project/mkdocs-coverage/
+  analytics:
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: Let us know how we can improve this page.

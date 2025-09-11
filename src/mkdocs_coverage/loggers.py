@@ -7,7 +7,10 @@ try:
 except ImportError:
     # TODO: remove once support for MkDocs <1.5 is dropped
     import logging
-    from typing import Any, MutableMapping
+    from typing import TYPE_CHECKING, Any
+
+    if TYPE_CHECKING:
+        from collections.abc import MutableMapping
 
     class PrefixedLogger(logging.LoggerAdapter):  # noqa: D101
         def __init__(self, prefix: str, logger: logging.Logger) -> None:  # noqa: D107

@@ -1,5 +1,5 @@
-# Changes here will be overwritten by Copier
-_commit: 1.2.8
+# Changes here will be overwritten by Copier.
+_commit: 1.9.0
 _src_path: gh:pawamoy/copier-uv
 author_email: dev@pawamoy.fr
 author_fullname: Timothée Mazzucotelli
@@ -7,9 +7,10 @@ author_username: pawamoy
 copyright_date: '2021'
 copyright_holder: Timothée Mazzucotelli
 copyright_holder_email: dev@pawamoy.fr
-copyright_license: ISC License
+copyright_license: ISC
 insiders: false
-project_description: MkDocs plugin to integrate your coverage HTML report into your site.
+project_description: MkDocs plugin to integrate your coverage HTML report into your
+    site.
 project_name: MkDocs Coverage Plugin
 python_package_command_line_name: ''
 python_package_distribution_name: mkdocs-coverage

@@ -7,30 +7,19 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 from mkdocs.config.base import Config
-from mkdocs.config.config_options import Deprecated as MkDeprecated
-from mkdocs.config.config_options import Optional as MkOptional
 from mkdocs.config.config_options import Type as MkType
-from mkdocs.plugins import BasePlugin
+from mkdocs.plugins import BasePlugin, get_plugin_logger
 from mkdocs.structure.files import File, Files
-
-from mkdocs_coverage._internal.loggers import _get_plugin_logger
 
 if TYPE_CHECKING:
     from mkdocs.config.defaults import MkDocsConfig
 
-_log = _get_plugin_logger(__name__)
+_log = get_plugin_logger(__name__)
 
 
 class MkDocsCoverageConfig(Config):
     """Configuration options for the plugin."""
 
-    page_name = MkDeprecated(
-        moved_to="page_path",
-        option_type=MkOptional(MkType(str, default=None)),
-        message="The 'page_name' configuration option is deprecated and will be removed in a future release. "
-        "Use the 'page_path' configuration option instead.",
-    )
-    """Deprecated. Name of the coverage page (without .md suffix)."""
     page_path = MkType(str, default="coverage")
     """Path to the coverage page (without .md suffix)."""
     html_report_dir = MkType(str, default="htmlcov")

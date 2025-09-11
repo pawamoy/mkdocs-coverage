@@ -48,6 +48,34 @@ plugins:
     page_path: dev/reports/coverage
 ```
 
+If the page doesn't exist, it will be created. If the page exists, the coverage report will be appended at the end.
+You can choose *where* to insert the coverage report in the page thanks to the `placeholder` setting:
+
+```yaml
+# mkdocs.yml
+nav:
+- Coverage report: dev/coverage.md  # existing page
+
+plugins:
+- coverage:
+    page_path: dev/coverage
+    placeholder: "[INSERT REPORT HERE]"
+```
+
+In your page:
+
+```md
+# Some page
+
+Some text.
+
+## Coverage report
+
+[INSERT REPORT HERE]
+```
+
+The plugin will replace any such string with the coverage report. **The default placeholder is `<!-- mkdocs-coverage -->`**.
+
 Now serve your documentation,
 and go to http://localhost:8000/coverage/
 to see your coverage report!

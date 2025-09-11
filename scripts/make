@@ -9,7 +9,7 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Iterator
 
-PYTHON_VERSIONS = os.getenv("PYTHON_VERSIONS", "3.8 3.9 3.10 3.11 3.12 3.13").split()
+PYTHON_VERSIONS = os.getenv("PYTHON_VERSIONS", "3.9 3.10 3.11 3.12 3.13").split()
 
 exe = ""
 prefix = ""

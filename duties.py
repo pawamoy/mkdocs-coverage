@@ -54,7 +54,7 @@ def changelog(ctx: Context, bump: str = "") -> None:
 
 
 @duty(pre=["check_quality", "check_types", "check_docs", "check_dependencies", "check-api"])
-def check(ctx: Context) -> None:  # noqa: ARG001
+def check(ctx: Context) -> None:
     """Check it all!"""
 
 
@@ -182,7 +182,7 @@ def coverage(ctx: Context) -> None:
 
 
 @duty
-def test(ctx: Context, *cli_args: str, match: str = "") -> None:
+def test(ctx: Context, *cli_args: str, match: str = "") -> None:  # noqa: PT028
     """Run the test suite.
 
     Parameters:

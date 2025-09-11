@@ -5,12 +5,12 @@ from __future__ import annotations
 import re
 import shutil
 import textwrap
-import warnings
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 from mkdocs.config.base import Config
-from mkdocs.config.config_options import Optional
+from mkdocs.config.config_options import Deprecated as MkDeprecated
+from mkdocs.config.config_options import Optional as MkOptional
 from mkdocs.config.config_options import Type as MkType
 from mkdocs.plugins import BasePlugin
 from mkdocs.structure.files import File, Files
@@ -26,18 +26,19 @@ log = get_plugin_logger(__name__)
 class MkDocsCoverageConfig(Config):
     """Configuration options for the plugin."""
 
-    page_name = Optional(MkType(str, default=None))
+    page_name = MkDeprecated(
+        moved_to="page_path",
+        option_type=MkOptional(MkType(str, default=None)),
+        message="The 'page_name' configuration option is deprecated and will be removed in a future release. "
+        "Use the 'page_path' configuration option instead.",
+    )
     page_path = MkType(str, default="coverage")
     html_report_dir = MkType(str, default="htmlcov")
+    placeholder = MkType(str, default="<!-- mkdocs-coverage -->")
 
 
 class MkDocsCoveragePlugin(BasePlugin[MkDocsCoverageConfig]):
     """The MkDocs plugin to integrate the coverage HTML report in the site."""
-
-    def __init__(self) -> None:
-        """Initialize the plugin."""
-        super().__init__()
-        self.page_path: str = ""
 
     def on_files(self, files: Files, config: MkDocsConfig, **kwargs: Any) -> Files:  # noqa: ARG002
         """Add the coverage page to the navigation.
@@ -53,31 +54,29 @@ class MkDocsCoveragePlugin(BasePlugin[MkDocsCoverageConfig]):
         Returns:
             The modified files collection.
         """
-        page_name = self.config.page_name
-        page_path: str
-        if page_name is not None:
-            warnings.warn(
-                "The 'page_name' configuration option is deprecated and will be removed in a future release. "
-                "Use the 'page_path' configuration option instead.",
-                DeprecationWarning,
-                stacklevel=1,
-            )
-            page_path = page_name
-        else:
-            page_path = self.config.page_path
-        self.page_path = page_path
-        covindex = "covindex.html" if config.use_directory_urls else f"{page_path}/covindex.html"
+        covindex = "covindex.html" if config.use_directory_urls else f"{self.config.page_path}/covindex.html"
+        original_coverage_file = files.get_file_from_path(self.config.page_path + ".md")
+        original_coverage_file_content = original_coverage_file.content_string if original_coverage_file else None
 
-        style = textwrap.dedent(
-            """
-            <style>
-            article h1, article > a, .md-sidebar--secondary {
-                display: none !important;
-            }
-            </style>
-            """,
-        )
+        page_content = self._build_coverage_page(covindex, original_coverage_file_content)
+        file = File.generated(config=config, src_uri=self.config.page_path + ".md", content=page_content)
+        if file.src_uri in files:
+            files.remove(file)
+        files.append(file)
+        return files
 
+    def _build_coverage_page(self, covindex: str, page_content: str | None) -> str:
+        """Build coverage page content.
+
+        Method to build the coverage page content w.r.t. possible user-defined coverage file content.
+
+        Arguments:
+            covindex: File path to covindex.html.
+            page_content: Page content of existing coverage file.
+
+        Returns:
+            The coverage page content.
+        """
         iframe = textwrap.dedent(
             f"""
             <iframe
@@ -90,7 +89,6 @@ class MkDocsCoveragePlugin(BasePlugin[MkDocsCoverageConfig]):
             </iframe>
             """,
         )
-
         script = textwrap.dedent(
             """
             <script>
@@ -104,18 +102,25 @@ class MkDocsCoveragePlugin(BasePlugin[MkDocsCoverageConfig]):
                 coviframe.contentWindow.location.reload();
             }
             </script>
-
             """,
         )
-        page_contents = style + iframe + script
-        files.append(
-            File.generated(
-                config=config,
-                src_uri=page_path + ".md",
-                content=page_contents,
-            ),
-        )
-        return files
+
+        coverage_page_content = iframe + script
+        if not page_content:
+            # hide toc and title for automatically generated coverage pages
+            style = textwrap.dedent(
+                """
+                <style>
+                article h1, article > a, .md-sidebar--secondary {
+                    display: none !important;
+                }
+                </style>
+                """,
+            )
+            return style + coverage_page_content
+        if self.config.placeholder in page_content:
+            return page_content.replace(self.config.placeholder, coverage_page_content)
+        return page_content + "\n\n" + coverage_page_content
 
     def on_post_build(self, config: MkDocsConfig, **kwargs: Any) -> None:  # noqa: ARG002
         """Copy the coverage HTML report into the site directory.
@@ -130,7 +135,7 @@ class MkDocsCoveragePlugin(BasePlugin[MkDocsCoverageConfig]):
             **kwargs: Additional arguments passed by MkDocs.
         """
         site_dir = Path(config.site_dir)
-        coverage_dir = site_dir / self.page_path
+        coverage_dir = site_dir / self.config.page_path
         tmp_index = site_dir / ".coverage-tmp.html"
 
         if config.use_directory_urls:

@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [2.0.0](https://github.com/pawamoy/mkdocs-coverage/releases/tag/2.0.0) - 2025-09-11
+
+<small>[Compare with 1.2.0](https://github.com/pawamoy/mkdocs-coverage/compare/1.2.0...2.0.0)</small>
+
+### Code Refactoring
+
+- Remove deprecated code ([f8f6043](https://github.com/pawamoy/mkdocs-coverage/commit/f8f60437dd01f9ae98eb8f906940136b68066632) by Timothée Mazzucotelli).
+
 ## [1.2.0](https://github.com/pawamoy/mkdocs-coverage/releases/tag/1.2.0) - 2025-09-11
 
 <small>[Compare with 1.1.0](https://github.com/pawamoy/mkdocs-coverage/compare/1.1.0...1.2.0)</small>

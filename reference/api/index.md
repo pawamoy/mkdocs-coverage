@@ -4,11 +4,6 @@ MkDocs Coverage Plugin package.
 
 MkDocs plugin to integrate your coverage HTML report into your site.
 
-Modules:
-
-- **`loggers`** – Deprecated. Import from mkdocs_coverage directly.
-- **`plugin`** – Deprecated. Import from mkdocs_coverage directly.
-
 Classes:
 
 - **`MkDocsCoverageConfig`** – Configuration options for the plugin.
@@ -23,7 +18,6 @@ Configuration options for the plugin.
 Attributes:
 
 - **`html_report_dir`** – Path to the HTML coverage report directory.
-- **`page_name`** – Deprecated. Name of the coverage page (without .md suffix).
 - **`page_path`** – Path to the coverage page (without .md suffix).
 - **`placeholder`** – Placeholder in the coverage page to insert the coverage report.
 
@@ -34,18 +28,6 @@ html_report_dir = Type(str, default='htmlcov')
 ```
 
 Path to the HTML coverage report directory.
-
-### page_name
-
-```
-page_name = Deprecated(
-    moved_to="page_path",
-    option_type=Optional(Type(str, default=None)),
-    message="The 'page_name' configuration option is deprecated and will be removed in a future release. Use the 'page_path' configuration option instead.",
-)
-```
-
-Deprecated. Name of the coverage page (without .md suffix).
 
 ### page_path
 

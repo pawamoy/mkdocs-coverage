@@ -1,0 +1,186 @@
+# mkdocs_coverage
+
+MkDocs Coverage Plugin package.
+
+MkDocs plugin to integrate your coverage HTML report into your site.
+
+Modules:
+
+- **`loggers`** – Deprecated. Import from mkdocs_coverage directly.
+- **`plugin`** – Deprecated. Import from mkdocs_coverage directly.
+
+Classes:
+
+- **`MkDocsCoverageConfig`** – Configuration options for the plugin.
+- **`MkDocsCoveragePlugin`** – The MkDocs plugin to integrate the coverage HTML report in the site.
+
+## MkDocsCoverageConfig
+
+Bases: `Config`
+
+Configuration options for the plugin.
+
+Attributes:
+
+- **`html_report_dir`** – Path to the HTML coverage report directory.
+- **`page_name`** – Deprecated. Name of the coverage page (without .md suffix).
+- **`page_path`** – Path to the coverage page (without .md suffix).
+- **`placeholder`** – Placeholder in the coverage page to insert the coverage report.
+
+### html_report_dir
+
+```
+html_report_dir = Type(str, default='htmlcov')
+```
+
+Path to the HTML coverage report directory.
+
+### page_name
+
+```
+page_name = Deprecated(
+    moved_to="page_path",
+    option_type=Optional(Type(str, default=None)),
+    message="The 'page_name' configuration option is deprecated and will be removed in a future release. Use the 'page_path' configuration option instead.",
+)
+```
+
+Deprecated. Name of the coverage page (without .md suffix).
+
+### page_path
+
+```
+page_path = Type(str, default='coverage')
+```
+
+Path to the coverage page (without .md suffix).
+
+### placeholder
+
+```
+placeholder = Type(str, default='<!-- mkdocs-coverage -->')
+```
+
+Placeholder in the coverage page to insert the coverage report.
+
+## MkDocsCoveragePlugin
+
+Bases: `BasePlugin[MkDocsCoverageConfig]`
+
+The MkDocs plugin to integrate the coverage HTML report in the site.
+
+Methods:
+
+- **`on_files`** – Add the coverage page to the navigation.
+- **`on_post_build`** – Copy the coverage HTML report into the site directory.
+
+### on_files
+
+```
+on_files(
+    files: Files, config: MkDocsConfig, **kwargs: Any
+) -> Files
+```
+
+Add the coverage page to the navigation.
+
+Hook for the [`on_files` event](https://www.mkdocs.org/user-guide/plugins/#on_files). This hook is used to add the coverage page to the navigation, using a temporary file.
+
+Parameters:
+
+- **`files`** (`Files`) – The files collection.
+- **`config`** (`MkDocsConfig`) – The MkDocs config object.
+- **`**kwargs`** (`Any`, default: `{}` ) – Additional arguments passed by MkDocs.
+
+Returns:
+
+- `Files` – The modified files collection.
+
+Source code in `src/mkdocs_coverage/_internal/plugin.py`
+
+```
+def on_files(self, files: Files, config: MkDocsConfig, **kwargs: Any) -> Files:  # noqa: ARG002
+    """Add the coverage page to the navigation.
+
+    Hook for the [`on_files` event](https://www.mkdocs.org/user-guide/plugins/#on_files).
+    This hook is used to add the coverage page to the navigation, using a temporary file.
+
+    Arguments:
+        files: The files collection.
+        config: The MkDocs config object.
+        **kwargs: Additional arguments passed by MkDocs.
+
+    Returns:
+        The modified files collection.
+    """
+    covindex = "covindex.html" if config.use_directory_urls else f"{self.config.page_path}/covindex.html"
+    original_coverage_file = files.get_file_from_path(self.config.page_path + ".md")
+    original_coverage_file_content = original_coverage_file.content_string if original_coverage_file else None
+
+    page_content = self._build_coverage_page(covindex, original_coverage_file_content)
+    file = File.generated(config=config, src_uri=self.config.page_path + ".md", content=page_content)
+    if file.src_uri in files:
+        files.remove(file)
+    files.append(file)
+    return files
+```
+
+### on_post_build
+
+```
+on_post_build(config: MkDocsConfig, **kwargs: Any) -> None
+```
+
+Copy the coverage HTML report into the site directory.
+
+Hook for the [`on_post_build` event](https://www.mkdocs.org/user-guide/plugins/#on_post_build).
+
+Rename `index.html` into `covindex.html`. Replace every occurrence of `index.html` by `covindex.html` in the HTML files.
+
+Parameters:
+
+- **`config`** (`MkDocsConfig`) – The MkDocs config object.
+- **`**kwargs`** (`Any`, default: `{}` ) – Additional arguments passed by MkDocs.
+
+Source code in `src/mkdocs_coverage/_internal/plugin.py`
+
+```
+def on_post_build(self, config: MkDocsConfig, **kwargs: Any) -> None:  # noqa: ARG002
+    """Copy the coverage HTML report into the site directory.
+
+    Hook for the [`on_post_build` event](https://www.mkdocs.org/user-guide/plugins/#on_post_build).
+
+    Rename `index.html` into `covindex.html`.
+    Replace every occurrence of `index.html` by `covindex.html` in the HTML files.
+
+    Arguments:
+        config: The MkDocs config object.
+        **kwargs: Additional arguments passed by MkDocs.
+    """
+    site_dir = Path(config.site_dir)
+    coverage_dir = site_dir / self.config.page_path
+    tmp_index = site_dir / ".coverage-tmp.html"
+
+    if config.use_directory_urls:
+        shutil.move(str(coverage_dir / "index.html"), tmp_index)
+    else:
+        shutil.move(str(coverage_dir.with_suffix(".html")), tmp_index)
+
+    shutil.rmtree(str(coverage_dir), ignore_errors=True)
+    try:
+        shutil.copytree(self.config.html_report_dir, str(coverage_dir))
+    except FileNotFoundError:
+        _log.warning(f"No such HTML report directory: {self.config.html_report_dir}")
+        return
+
+    shutil.move(str(coverage_dir / "index.html"), coverage_dir / "covindex.html")
+
+    if config.use_directory_urls:
+        shutil.move(str(tmp_index), coverage_dir / "index.html")
+    else:
+        shutil.move(str(tmp_index), coverage_dir.with_suffix(".html"))
+
+    for html_file in coverage_dir.iterdir():
+        if html_file.suffix == ".html" and html_file.name != "index.html":
+            html_file.write_text(re.sub(r'href="index\.html"', 'href="covindex.html"', html_file.read_text()))
+```

@@ -1,0 +1,12 @@
+# MkDocs Coverage Plugin
+
+> MkDocs plugin to integrate your coverage HTML report into your site.
+
+## Usage
+
+- [Overview](https://pawamoy.github.io/mkdocs-coverage/index.md)
+
+## API
+
+- [API reference](https://pawamoy.github.io/mkdocs-coverage/reference/api/index.md)
+

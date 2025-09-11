@@ -2,62 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://pawamoy.github.io/mkdocs-coverage/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
          <loc>https://pawamoy.github.io/mkdocs-coverage/changelog/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
          <loc>https://pawamoy.github.io/mkdocs-coverage/code_of_conduct/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
          <loc>https://pawamoy.github.io/mkdocs-coverage/contributing/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
          <loc>https://pawamoy.github.io/mkdocs-coverage/credits/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
          <loc>https://pawamoy.github.io/mkdocs-coverage/license/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
-         <loc>https://pawamoy.github.io/mkdocs-coverage/reference/SUMMARY/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://pawamoy.github.io/mkdocs-coverage/reference/mkdocs_coverage/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://pawamoy.github.io/mkdocs-coverage/reference/mkdocs_coverage/debug/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://pawamoy.github.io/mkdocs-coverage/reference/mkdocs_coverage/loggers/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://pawamoy.github.io/mkdocs-coverage/reference/mkdocs_coverage/plugin/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://pawamoy.github.io/mkdocs-coverage/reference/api/</loc>
+         <lastmod>2025-09-11</lastmod>
     </url>
     <url>
          <loc>https://pawamoy.github.io/mkdocs-coverage/coverage/</loc>
-         <lastmod>2024-06-11</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-09-11</lastmod>
     </url>
 </urlset>

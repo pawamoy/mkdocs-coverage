@@ -1,10 +1,7 @@
 # MkDocs Coverage Plugin
 
-> [!WARNING]
-> This project is in maintenance mode. I'm now dedicating my time to [Zensical](https://zensical.org/). Feel free to reach out for a responsible transfer of maintainership.
-
 [![ci](https://github.com/pawamoy/mkdocs-coverage/workflows/ci/badge.svg)](https://github.com/pawamoy/mkdocs-coverage/actions?query=workflow%3Aci)
-[![documentation](https://img.shields.io/badge/docs-mkdocs-708FCC.svg?style=flat)](https://pawamoy.github.io/mkdocs-coverage/)
+[![documentation](https://img.shields.io/badge/docs-zensical-FF9100.svg?style=flat)](https://pawamoy.github.io/mkdocs-coverage/)
 [![pypi version](https://img.shields.io/pypi/v/mkdocs-coverage.svg)](https://pypi.org/project/mkdocs-coverage/)
 [![gitter](https://img.shields.io/badge/matrix-chat-4DB798.svg?style=flat)](https://app.gitter.im/#/room/#mkdocs-coverage:gitter.im)
 
@@ -16,10 +13,7 @@ MkDocs plugin to integrate your coverage HTML report into your site.
 pip install mkdocs-coverage
 ```
 
-```bash
-python3.8 -m pip install --user pipx
-pipx install mkdocs-coverage
-```
+## Sponsors
 
 ## Usage
 

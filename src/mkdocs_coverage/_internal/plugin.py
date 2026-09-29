@@ -168,4 +168,7 @@ class MkDocsCoveragePlugin(BasePlugin[MkDocsCoverageConfig]):
 
         for html_file in coverage_dir.iterdir():
             if html_file.suffix == ".html" and html_file.name != "index.html":
-                html_file.write_text(re.sub(r'href="index\.html"', 'href="covindex.html"', html_file.read_text(encoding="utf-8")), encoding="utf-8")
+                html_file.write_text(
+                    re.sub(r'href="index\.html"', 'href="covindex.html"', html_file.read_text(encoding="utf-8")),
+                    encoding="utf-8",
+                )

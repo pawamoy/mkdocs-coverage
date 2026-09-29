@@ -36,7 +36,10 @@ def test_plugin(tmp_path: Path) -> None:
     html_report_dir = tmp_path / "htmlcov"
     html_report_dir.mkdir()
     (html_report_dir / "index.html").write_text('<a href="module.html">Module</a>', encoding="utf-8")
-    (html_report_dir / "module.html").write_text('<a href="index.html">Index</a><a href="covindex.html">Index</a>', encoding="utf-8")
+    (html_report_dir / "module.html").write_text(
+        '<a href="index.html">Index</a><a href="covindex.html">Index</a>',
+        encoding="utf-8",
+    )
 
     # Load the configuration from memory instead of the project's documentation config.
     config = load_config(

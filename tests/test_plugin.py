@@ -19,23 +19,47 @@
 """Tests for the plugin module."""
 
 import re
+from io import StringIO
 from pathlib import Path
 
 from mkdocs.commands.build import build
 from mkdocs.config.base import load_config
 
 
-def test_plugin() -> None:
-    """Build our own documentation."""
-    config = load_config()
+def test_plugin(tmp_path: Path) -> None:
+    """Build a minimal site with an embedded coverage report."""
+    # Create the documentation and coverage report without project build artifacts.
+    docs_dir = tmp_path / "docs"
+    docs_dir.mkdir()
+    (docs_dir / "index.md").write_text("# Test", encoding="utf-8")
+
+    html_report_dir = tmp_path / "htmlcov"
+    html_report_dir.mkdir()
+    (html_report_dir / "index.html").write_text('<a href="module.html">Module</a>', encoding="utf-8")
+    (html_report_dir / "module.html").write_text('<a href="index.html">Index</a><a href="covindex.html">Index</a>', encoding="utf-8")
+
+    # Load the configuration from memory instead of the project's documentation config.
+    config = load_config(
+        StringIO("site_name: Test"),
+        docs_dir=str(docs_dir),
+        site_dir=str(tmp_path / "site"),
+        plugins=[{"coverage": {"html_report_dir": str(html_report_dir)}}],
+    )
+
     config["plugins"].run_event("startup", command="build", dirty=False)
     try:
         build(config)
     finally:
         config["plugins"].run_event("shutdown")
+
+    # Keep the coverage index separate from the page that embeds it, and rewrite report links.
     site_coverage_dir = Path(config["site_dir"]) / "coverage"
+    assert (site_coverage_dir / "covindex.html").is_file()
+    assert 'src="covindex.html"' in (site_coverage_dir / "index.html").read_text(encoding="utf-8")
+    assert 'href="covindex.html"' in (site_coverage_dir / "module.html").read_text(encoding="utf-8")
+
     for html_file in site_coverage_dir.iterdir():
         if html_file.suffix == ".html" and html_file.name != "index.html" and "test" not in html_file.name:
-            text = html_file.read_text()
+            text = html_file.read_text(encoding="utf-8")
             assert not re.search("covcovindex", text)
             assert not re.search('href="index.html"', text)

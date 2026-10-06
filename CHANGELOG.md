@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [2.0.1](https://github.com/pawamoy/mkdocs-coverage/releases/tag/2.0.1) - 2026-10-06
+
+<small>[Compare with 2.0.0](https://github.com/pawamoy/mkdocs-coverage/compare/2.0.0...2.0.1)</small>
+
+### Build
+
+- Drop support for Python 3.10 ([2d5a70c](https://github.com/pawamoy/mkdocs-coverage/commit/2d5a70c355dbcdca443094d68ca97508fbe70d68) by Timothée Mazzucotelli).
+
 ## [2.0.0](https://github.com/pawamoy/mkdocs-coverage/releases/tag/2.0.0) - 2025-09-11
 
 <small>[Compare with 1.2.0](https://github.com/pawamoy/mkdocs-coverage/compare/1.2.0...2.0.0)</small>
